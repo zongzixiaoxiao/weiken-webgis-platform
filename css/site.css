@@ -3699,108 +3699,85 @@ ul, ol {
    v5.0 Upgrades: Partner Logo Wall, Core Team Grid, Patents & Cert Gallery
    ========================================================================== */
 
-/* Unified 4x2 Enterprise Vector Logo Wall (8 Symmetrical Cells, Retina-Sharp) */
+/* Compact Minimal 4x2 Enterprise Logo Wall */
 .logo-wall-sec {
-  margin-top: 44px;
+  margin-top: 32px;
 }
 
 .logo-wall-head {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 18px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .logo-wall-head small {
-  display: block;
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--brand);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
   text-transform: uppercase;
 }
 
-.logo-wall-head h3 {
-  margin-top: 4px;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.015em;
-}
-
 .logo-wall-head p {
-  font-size: 13px;
-  color: var(--ink-3);
+  font-size: 12.5px;
+  color: var(--ink-muted);
 }
 
 .logo-wall-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
   overflow: hidden;
-  background: #fff;
-  box-shadow: var(--shadow-xs);
+  background: #FAFBFD;
 }
 
 .lw-cell {
   position: relative;
-  height: 132px;
-  padding: 20px 22px;
+  height: 70px;
+  padding: 0 18px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  transition: background-color 0.24s var(--ease);
-  overflow: hidden;
+  background: #FAFBFD;
+  transition: background-color 0.2s var(--ease);
 }
 
-.lw-cell::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2.5px;
-  background: var(--brand);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.28s var(--ease);
+.lw-cell:nth-child(4n) {
+  border-right: 0;
+}
+
+.lw-cell:nth-child(n + 5) {
+  border-bottom: 0;
 }
 
 .lw-cell:hover {
-  background: #F7F9FD;
-}
-
-.lw-cell:hover::before {
-  transform: scaleX(1);
+  background: #fff;
 }
 
 .lw-mark {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 11px;
-  color: #2A3852;
-  transition: color 0.24s var(--ease), transform 0.24s var(--ease);
+  gap: 9px;
+  color: #475569;
+  transition: color 0.2s var(--ease);
 }
 
 .lw-cell:hover .lw-mark {
   color: var(--brand);
-  transform: translateY(-5px);
 }
 
 .lw-emblem {
-  width: 34px;
-  height: 34px;
+  width: 22px;
+  height: 22px;
   flex: none;
+  opacity: 0.82;
 }
 
 .lw-wordmark {
@@ -3811,41 +3788,20 @@ ul, ol {
 }
 
 .lw-wordmark b {
-  font-size: 16.5px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: inherit;
 }
 
 .lw-wordmark small {
-  margin-top: 3px;
+  margin-top: 2px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--ink-muted);
   text-transform: uppercase;
-}
-
-.lw-scope {
-  position: absolute;
-  bottom: 11px;
-  left: 16px;
-  right: 16px;
-  text-align: center;
-  font-size: 11.5px;
-  color: var(--ink-3);
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.lw-cell:hover .lw-scope {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Core Team Grid (about.html) */
@@ -4026,6 +3982,10 @@ ul, ol {
   .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .lw-cell:nth-child(4n) { border-right: 1px solid var(--line); }
+  .lw-cell:nth-child(2n) { border-right: 0; }
+  .lw-cell:nth-child(n + 5) { border-bottom: 1px solid var(--line); }
+  .lw-cell:nth-child(n + 7) { border-bottom: 0; }
   .cert-showcase {
     grid-template-columns: 1fr;
   }
@@ -4037,11 +3997,12 @@ ul, ol {
     grid-template-columns: 1fr;
   }
   .lw-cell {
-    height: 108px;
+    height: 60px;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
   }
-  .lw-scope {
-    opacity: 1;
-    transform: none;
+  .lw-cell:last-child {
+    border-bottom: 0 !important;
   }
   .patent-grid {
     grid-template-columns: repeat(2, 1fr);

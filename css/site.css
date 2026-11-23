@@ -3121,10 +3121,65 @@ ul, ol {
 .wb-shell {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr) 320px;
-  height: calc(100vh - var(--nav-h));
-  min-height: 660px;
-  border-bottom: 1px solid var(--line);
+  height: 100vh;
+  min-height: 640px;
   background: #fff;
+}
+
+.wb-brand-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  background: #FAFBFD;
+}
+
+.wb-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.wb-brand-link img {
+  height: 24px;
+  width: auto;
+  flex: none;
+}
+
+.wb-brand-link strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.wb-brand-link small {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+
+.wb-back-btn {
+  padding: 5px 9px;
+  border-radius: var(--r-xs);
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: all 0.16s;
+}
+
+.wb-back-btn:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background: var(--brand-soft);
 }
 
 .wb-panel {

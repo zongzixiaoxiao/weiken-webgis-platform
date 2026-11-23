@@ -818,7 +818,7 @@
       lbImg.alt = t.dataset.alt || '';
       if (lbTitle) lbTitle.textContent = t.dataset.alt || '';
       if (lbDesc) lbDesc.textContent = t.dataset.desc || '';
-      if (lbIdx) lbIdx.textContent = `0${activeIdx + 1} / 0${zoomTriggers.length}`;
+      if (lbIdx) lbIdx.textContent = `${String(activeIdx + 1).padStart(2, '0')} / ${String(zoomTriggers.length).padStart(2, '0')}`;
       lightbox.classList.add('open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';

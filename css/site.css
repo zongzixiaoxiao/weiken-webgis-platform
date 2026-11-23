@@ -3694,3 +3694,282 @@ ul, ol {
     min-height: 440px;
   }
 }
+
+/* ==========================================================================
+   v5.0 Upgrades: Partner Logo Wall, Core Team Grid, Patents & Cert Gallery
+   ========================================================================== */
+
+/* Real Partner Logo Wall */
+.partner-wall {
+  margin-top: 28px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.partner-wall-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.partner-wall-head small {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.partner-wall-head strong {
+  font-size: 17px;
+  color: var(--ink);
+  margin-left: 10px;
+}
+
+.partner-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.partner-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  text-align: center;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.partner-logo-card:hover {
+  border-color: var(--brand-hi);
+  background: #fff;
+}
+
+.partner-logo-img {
+  height: 44px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-logo-img img {
+  max-height: 40px;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+.partner-logo-card strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.partner-logo-card span {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+/* Core Team Grid (about.html) */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.team-card {
+  padding: 26px 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.team-card:hover {
+  border-color: var(--brand-hi);
+  box-shadow: var(--shadow-sm);
+}
+
+.team-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.team-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--dark);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+}
+
+.team-role {
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.team-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.team-duty {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+.team-exp {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+/* High-Tech & Patent Certificate Gallery (about.html) */
+.cert-showcase {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.cert-hero-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.cert-hero-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10.2;
+  object-fit: cover;
+}
+
+.cert-hero-meta {
+  padding: 18px 22px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.patent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.patent-tile {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  padding: 8px;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.patent-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-hi);
+}
+
+.patent-tile img {
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.patent-tile span {
+  display: block;
+  margin-top: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  line-height: 1.35;
+}
+
+.patent-tile small {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-muted);
+}
+
+/* Technical Parameter Callout Row inside Case Cards */
+.metric-strip {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metric-badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: var(--dark);
+  color: #E2EBFA;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.metric-badge em {
+  color: #7FA5FF;
+  font-style: normal;
+  margin-right: 4px;
+}
+
+@media (max-width: 1020px) {
+  .partner-logo-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cert-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-logo-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .patent-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

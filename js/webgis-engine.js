@@ -117,10 +117,10 @@
       this.mode = options.mode || 'geo';
       this.compact = Boolean(options.compact);
 
-      // Geo camera state (centered on Nanjing-Wuhu-Suzhou corridor)
-      this.centerLon = options.centerLon ?? 119.45;
-      this.centerLat = options.centerLat ?? 31.68;
-      this.zoom = options.zoom ?? (this.compact ? 7.35 : 7.65);
+      // Geo camera state (centered on East China / YRD client network)
+      this.centerLon = options.centerLon ?? 119.9;
+      this.centerLat = options.centerLat ?? 30.35;
+      this.zoom = options.zoom ?? (this.compact ? 6.45 : 6.75);
 
       // Indoor camera state (EPSG:Local metric floorplan 28m x 16m)
       this.indoorCenterX = 14.0;
@@ -146,13 +146,13 @@
       this.theme = options.theme || 'light';
 
       // Spatial Analysis State
-      this.bufferRadiusKm = options.bufferRadiusKm ?? 200;
+      this.bufferRadiusKm = options.bufferRadiusKm ?? 350;
       this.activeTool = 'pan'; // 'pan' | 'measure'
       this.measurePts = []; // Geo: [lon, lat] | Indoor: [x, y]
       this.cursorCoord = null;
       this.hoveredId = null;
       this.selectedId = options.selectedId || 'hq-nanjing';
-      this.selectedStationId = 'ST02';
+      this.selectedStationId = 'ST50';
       this.categoryFilter = 'all';
 
       // Callbacks
@@ -290,7 +290,7 @@
     zoomBy(delta, anchorX = this.width / 2, anchorY = this.height / 2) {
       if (this.mode === 'geo') {
         const [lonBefore, latBefore] = this.screenToGeo(anchorX, anchorY);
-        this.zoom = Math.max(5.8, Math.min(12.5, this.zoom + delta));
+        this.zoom = Math.max(5.0, Math.min(12.5, this.zoom + delta));
         const [wxAfter, wyAfter] = GeoMath.lonLatToWorldPx(lonBefore, latBefore, this.zoom);
         const newCenterWx = wxAfter - (anchorX - this.width / 2);
         const newCenterWy = wyAfter - (anchorY - this.height / 2);
@@ -323,7 +323,7 @@
 
     resetView() {
       if (this.mode === 'geo') {
-        this.flyTo(119.45, 31.68, this.compact ? 7.35 : 7.65, 520);
+        this.flyTo(119.9, 30.35, this.compact ? 6.45 : 6.75, 520);
       } else {
         this.fitIndoor();
       }
@@ -1311,10 +1311,10 @@
 
     const map = new WeikenWebGIS(homeCanvas, {
       compact: true,
-      centerLon: 119.45,
-      centerLat: 31.68,
-      zoom: 7.35,
-      bufferRadiusKm: 200,
+      centerLon: 119.9,
+      centerLat: 30.35,
+      zoom: 6.45,
+      bufferRadiusKm: 350,
       onCursorMove(c) {
         if (!coordEl) return;
         coordEl.textContent = `${c.lon.toFixed(4)}°E, ${c.lat.toFixed(4)}°N`;
@@ -1411,10 +1411,10 @@
     }
 
     const wbMap = new WeikenWebGIS(wbCanvas, {
-      centerLon: 119.45,
-      centerLat: 31.68,
-      zoom: 7.75,
-      bufferRadiusKm: 200,
+      centerLon: 119.9,
+      centerLat: 30.35,
+      zoom: 6.75,
+      bufferRadiusKm: 350,
       onCursorMove(c) {
         if (c.mode === 'geo') {
           if (coordEl) coordEl.textContent = `WGS84: ${c.lon.toFixed(4)}°E, ${c.lat.toFixed(4)}°N`;

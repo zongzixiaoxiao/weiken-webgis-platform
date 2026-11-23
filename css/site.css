@@ -3699,179 +3699,153 @@ ul, ol {
    v5.0 Upgrades: Partner Logo Wall, Core Team Grid, Patents & Cert Gallery
    ========================================================================== */
 
-/* Real Partner Logo Wall — Swiss Seamless Hairline Matrix (5 Logos + 3 Regional Roster) */
-.partner-wall {
-  margin-top: 32px;
-  background: #fff;
-  border: 1px solid var(--line);
+/* Unified 4x2 Enterprise Vector Logo Wall (8 Symmetrical Cells, Retina-Sharp) */
+.logo-wall-sec {
+  margin-top: 44px;
+}
+
+.logo-wall-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.logo-wall-head small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--brand);
+  text-transform: uppercase;
+}
+
+.logo-wall-head h3 {
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+
+.logo-wall-head p {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.logo-wall-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
   border-radius: var(--r-md);
   overflow: hidden;
+  background: #fff;
   box-shadow: var(--shadow-xs);
 }
 
-.partner-wall-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 20px 28px;
-  border-bottom: 1px solid var(--line);
-  background: #FAFBFD;
-}
-
-.partner-wall-head small {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: var(--brand);
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.partner-wall-head strong {
-  font-size: 16px;
-  color: var(--ink);
-  margin-left: 10px;
-}
-
-.partner-logo-strip {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  background: #fff;
-}
-
-.partner-logo-cell {
+.lw-cell {
   position: relative;
+  height: 132px;
+  padding: 20px 22px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 28px 18px 22px;
-  border-right: 1px solid var(--line);
-  text-align: center;
-  transition: background-color 0.25s var(--ease);
+  background: #fff;
+  transition: background-color 0.24s var(--ease);
+  overflow: hidden;
 }
 
-.partner-logo-cell:last-child {
-  border-right: 0;
+.lw-cell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s var(--ease);
 }
 
-.partner-logo-cell:hover {
-  background: #F8FAFD;
+.lw-cell:hover {
+  background: #F7F9FD;
 }
 
-.partner-logo-img {
-  height: 44px;
-  width: 100%;
+.lw-cell:hover::before {
+  transform: scaleX(1);
+}
+
+.lw-mark {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 11px;
+  color: #2A3852;
+  transition: color 0.24s var(--ease), transform 0.24s var(--ease);
 }
 
-.partner-logo-img img {
-  max-height: 36px;
-  max-width: 148px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: grayscale(100%) contrast(1.06);
-  opacity: 0.72;
-  transition: filter 0.28s var(--ease), opacity 0.28s var(--ease), transform 0.28s var(--ease);
+.lw-cell:hover .lw-mark {
+  color: var(--brand);
+  transform: translateY(-5px);
 }
 
-.partner-logo-img img.badge-logo {
-  max-height: 38px;
-  border-radius: 5px;
-}
-
-.partner-logo-cell:hover .partner-logo-img img {
-  filter: none;
-  opacity: 1;
-  transform: scale(1.04);
-}
-
-.partner-logo-meta strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.3;
-}
-
-.partner-logo-meta span {
-  display: block;
-  margin-top: 2px;
-  font-size: 11.5px;
-  color: var(--ink-muted);
-}
-
-/* Integrated Bottom 3-Column Roster for Text-Verified Clients */
-.partner-roster {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-  background: #FAFBFD;
-}
-
-.partner-roster-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 16px 24px;
-  border-right: 1px solid var(--line);
-  transition: background-color 0.2s;
-}
-
-.partner-roster-item:last-child {
-  border-right: 0;
-}
-
-.partner-roster-item:hover {
-  background: #fff;
-}
-
-.partner-roster-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.partner-roster-left i {
-  width: 7px;
-  height: 7px;
-  border-radius: 2px;
-  background: var(--brand);
+.lw-emblem {
+  width: 34px;
+  height: 34px;
   flex: none;
 }
 
-.partner-roster-left strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink);
+.lw-wordmark {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
 }
 
-.partner-roster-left span {
-  display: block;
-  font-size: 12px;
-  color: var(--ink-3);
+.lw-wordmark b {
+  font-size: 16.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: inherit;
 }
 
-.partner-region {
+.lw-wordmark small {
+  margin-top: 3px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   color: var(--ink-muted);
-  padding: 3px 7px;
-  border-radius: 4px;
-  background: #fff;
-  border: 1px solid var(--line);
+  text-transform: uppercase;
+}
+
+.lw-scope {
+  position: absolute;
+  bottom: 11px;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--ink-3);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lw-cell:hover .lw-scope {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Core Team Grid (about.html) */
@@ -4048,22 +4022,7 @@ ul, ol {
 }
 
 @media (max-width: 1020px) {
-  .partner-logo-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .partner-logo-cell {
-    border-bottom: 1px solid var(--line);
-  }
-  .partner-roster {
-    grid-template-columns: 1fr;
-  }
-  .partner-roster-item {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .partner-roster-item:last-child {
-    border-bottom: 0;
-  }
+  .logo-wall-grid,
   .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -4073,12 +4032,16 @@ ul, ol {
 }
 
 @media (max-width: 640px) {
-  .partner-logo-strip,
+  .logo-wall-grid,
   .team-grid {
     grid-template-columns: 1fr;
   }
-  .partner-logo-cell {
-    border-right: 0;
+  .lw-cell {
+    height: 108px;
+  }
+  .lw-scope {
+    opacity: 1;
+    transform: none;
   }
   .patent-grid {
     grid-template-columns: repeat(2, 1fr);

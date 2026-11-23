@@ -483,7 +483,7 @@
           <span class="insp-sub">交付自动化设备与产线</span>
           <ul>${p.equipment.map((e) => `<li>${e}</li>`).join('')}</ul>
         </div>
-        ${p.indoorLinked ? `<button type="button" class="btn btn-primary btn-sm" style="width:100%;margin-top:12px" id="drill-indoor-btn">下钻至车间微空间 GIS（产线平面拓扑）</button>` : ''}
+        ${p.indoorLinked ? `<button type="button" class="btn btn-primary btn-sm" style="width:100%;margin-top:12px" id="drill-indoor-btn">下钻至车间孪生平面（产线拓扑）</button>` : ''}
       `;
 
       document.getElementById('btn-plan-route')?.addEventListener('click', () => planHighwayRoute(feature));
@@ -511,7 +511,7 @@
           <div><span>安全电子围栏</span><strong>${st.geofence}</strong></div>
           <div><span>工艺与追溯状态</span><strong>${st.cycle}</strong></div>
         </div>
-        <button type="button" class="btn btn-outline btn-sm" style="width:100%;margin-top:14px" id="back-geo-btn">返回高德宏观地理 GIS</button>
+        <button type="button" class="btn btn-outline btn-sm" style="width:100%;margin-top:14px" id="back-geo-btn">返回全国交付网络</button>
       `;
       document.getElementById('back-geo-btn')?.addEventListener('click', () => switchScale('geo'));
     }

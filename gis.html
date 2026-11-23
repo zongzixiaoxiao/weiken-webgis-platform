@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>空间 GIS 工作台 | 南京崴肯自动化设备科技有限公司</title>
-  <meta name="description" content="南京崴肯自动化 WebGIS 空间运维与数字孪生工作台：EPSG:3857 投影、长三角工程响应缓冲区分析、测地距离量测与车间微空间产线平面 GIS。">
+  <title>高德 2.0 空间 GIS 工作台 | 南京崴肯自动化设备科技有限公司</title>
+  <meta name="description" content="南京崴肯自动化高德 2.0 3D WebGIS 空间运维与车间数字孪生工作台：WGS84/GCJ-02 坐标纠偏、真实高速驾车路径规划、球面测地缓冲区分析、测距测面与车间平面下钻。">
   <link rel="icon" href="./img/logo.jpg">
-  <link rel="stylesheet" href="./css/site.css?v=5.4">
+  <link rel="stylesheet" href="./css/site.css?v=6.0">
+  <script>
+    window._AMapSecurityConfig = { securityJsCode: '35853aa25bf0930619ee64a5d9ffb839' };
+  </script>
+  <script src="https://webapi.amap.com/maps?v=2.0&key=ff6947f6415014ed887023e7873afc8f&plugin=AMap.Driving,AMap.RangingTool,AMap.MouseTool,AMap.HeatMap,AMap.Scale"></script>
 </head>
 <body class="gis-body">
-  <main class="wb-shell" aria-label="WebGIS 空间分析工作台">
+  <main class="wb-shell" aria-label="高德 2.0 WebGIS 空间分析工作台">
     <!-- Left Control Rail -->
     <aside class="wb-panel" aria-label="图层与空间分析控制面板">
       <div class="wb-brand-bar">
@@ -17,7 +21,7 @@
           <img src="./img/logo-clean.png" alt="WE CAN 崴肯">
           <div>
             <strong>WE CAN · WebGIS</strong>
-            <small>空间运维与车间数字孪生</small>
+            <small>高德 2.0 3D × 车间数字孪生</small>
           </div>
         </a>
         <a class="wb-back-btn" href="./index.html" title="返回官网首页">← 官网</a>
@@ -25,10 +29,10 @@
 
       <div class="wb-sec">
         <div class="wb-sec-title">
-          <span>SPATIAL SCALE · 视图尺度</span>
+          <span>SPATIAL SCALE · 双尺度引擎</span>
         </div>
-        <div class="wb-mode-tabs" role="tablist" aria-label="切换宏观地理或微观车间视图">
-          <button type="button" class="wb-mode-btn active" data-wb-mode="geo">长三角地理 GIS</button>
+        <div class="wb-mode-tabs" role="tablist" aria-label="切换高德地理或车间平面视图">
+          <button type="button" class="wb-mode-btn active" data-wb-mode="geo">高德 3D 地理</button>
           <button type="button" class="wb-mode-btn" data-wb-mode="indoor">车间平面 GIS</button>
         </div>
       </div>
@@ -38,12 +42,10 @@
           <span>LAYER MANAGER · 图层控制</span>
         </div>
         <div class="wb-layer-list" id="wb-geo-layers">
-          <label class="wb-toggle"><span>GeoJSON 矢量底图（省界/长江）</span><input type="checkbox" data-wb-layer="vectorBase" checked></label>
-          <label class="wb-toggle"><span>在线 XYZ 栅格瓦片（Carto）</span><input type="checkbox" data-wb-layer="xyzTiles"></label>
           <label class="wb-toggle"><span>球面测地缓冲区（Buffer）</span><input type="checkbox" data-wb-layer="buffers" checked></label>
-          <label class="wb-toggle"><span>工程服务飞线（OD Arcs）</span><input type="checkbox" data-wb-layer="odFlows" checked></label>
-          <label class="wb-toggle"><span>项目密度核热力（KDE Heat）</span><input type="checkbox" data-wb-layer="heatmap"></label>
-          <label class="wb-toggle"><span>空间注记与站点标签</span><input type="checkbox" data-wb-layer="labels" checked></label>
+          <label class="wb-toggle"><span>服务辐射飞线（Bezier OD）</span><input type="checkbox" data-wb-layer="odFlows" checked></label>
+          <label class="wb-toggle"><span>客户密度热力图（HeatMap）</span><input type="checkbox" data-wb-layer="heatmap"></label>
+          <label class="wb-toggle"><span>客户节点文字标牌</span><input type="checkbox" data-wb-layer="labels" checked></label>
         </div>
         <div class="wb-layer-list hidden" id="wb-indoor-layers">
           <label class="wb-toggle"><span>安全光栅电子围栏（Geofence）</span><input type="checkbox" data-wb-layer="indoorGeofence" checked></label>
@@ -54,7 +56,7 @@
 
       <div class="wb-sec">
         <div class="wb-sec-title">
-          <span>BUFFER ANALYSIS · 响应圈分析</span>
+          <span>BUFFER ANALYSIS · 球面响应圈</span>
         </div>
         <div class="wb-slider-head">
           <span>南京浦口总部球面辐射半径</span>
@@ -66,35 +68,45 @@
 
       <div class="wb-sec" style="border-bottom:0">
         <div class="wb-sec-title">
-          <span>DELIVERY NODES · 空间节点定位</span>
+          <span>DELIVERY NODES · 真实客户与路线</span>
         </div>
         <div class="wb-site-list" id="wb-site-list"></div>
       </div>
     </aside>
 
     <!-- Center Interactive WebGIS Viewport -->
-    <section class="wb-stage" aria-label="交互式地图画布">
+    <section class="wb-stage" aria-label="交互式高德 2.0 地图与车间平面视口">
       <div class="wb-canvas-wrap">
-        <canvas id="gis-canvas"></canvas>
+        <!-- Real AMap JS API 2.0 3D Map Container -->
+        <div id="amap-container" class="amap-viewport"></div>
+        <!-- Self-built Canvas 2D Indoor Workshop GIS (and offline fallback) -->
+        <div id="indoor-canvas-wrap" class="indoor-canvas-wrap">
+          <canvas id="gis-canvas"></canvas>
+        </div>
 
         <!-- Floating Spatial Toolbar -->
         <div class="wb-toolbar">
-          <div class="wb-tool-group" role="group" aria-label="交互工具">
+          <div class="wb-tool-group" role="group" aria-label="空间分析工具">
             <button type="button" class="wb-tool-btn active" data-wb-tool="pan">漫游 / 点选</button>
-            <button type="button" class="wb-tool-btn" data-wb-tool="measure">测地测距</button>
+            <button type="button" class="wb-tool-btn" data-wb-tool="measure">空间测距</button>
+            <button type="button" class="wb-tool-btn" data-wb-tool="area" data-geo-only>面积量测</button>
           </div>
-          <div class="wb-tool-group" role="group" aria-label="地图主题">
-            <button type="button" class="wb-tool-btn active" data-wb-theme="light">日间制图</button>
-            <button type="button" class="wb-tool-btn" data-wb-theme="dark">深空雷达</button>
+          <div class="wb-tool-group" role="group" aria-label="高德底图切换" data-geo-only>
+            <button type="button" class="wb-tool-btn active" data-amap-style="light">极简矢量</button>
+            <button type="button" class="wb-tool-btn" data-amap-style="satellite">卫星影像</button>
+            <button type="button" class="wb-tool-btn" data-amap-style="dark">极客暗夜</button>
+          </div>
+          <div class="wb-tool-group" data-geo-only>
+            <button type="button" class="wb-tool-btn active" id="wb-toggle-3d">3D 视角</button>
           </div>
           <div class="wb-tool-group">
-            <button type="button" class="wb-tool-btn" id="wb-export-btn">查看 / 导出 GeoJSON</button>
+            <button type="button" class="wb-tool-btn" id="wb-export-btn">导出 GeoJSON</button>
           </div>
         </div>
 
         <!-- Measure Readout Pill -->
         <div class="wb-measure-bar" id="wb-measure-bar">
-          <span id="wb-measure-status">在地图上依次点击两点以上开始测距</span>
+          <span id="wb-measure-status">在地图上依次点击两点以上开始测量</span>
           <button type="button" id="wb-measure-clear">清除</button>
         </div>
 
@@ -102,46 +114,40 @@
         <div class="gis-zoom-stack">
           <button type="button" class="gis-icon-btn" id="wb-zin" aria-label="放大">+</button>
           <button type="button" class="gis-icon-btn" id="wb-zout" aria-label="缩小">−</button>
-          <button type="button" class="gis-icon-btn" id="wb-reset" aria-label="复位视角" title="复位全图">⌖</button>
+          <button type="button" class="gis-icon-btn" id="wb-reset" aria-label="复位全图" title="复位全图">⌖</button>
         </div>
-
-        <div class="wb-north" aria-hidden="true">N</div>
       </div>
 
-      <!-- Bottom Coordinate & Scale Bar Telemetry Strip -->
+      <!-- Bottom Multi-CRS Coordinate Telemetry Strip -->
       <div class="wb-statusbar">
         <div class="wb-status-left">
-          <span id="wb-coord">WGS84: 118.7969°E, 32.0603°N</span>
-          <span id="wb-merc">3857: 13224405m, 3771225m</span>
+          <span id="wb-coord">WGS84: 118.6186°E, 32.0942°N | GCJ02: 118.6238, 32.0922</span>
+          <span id="wb-merc">3857: 13204562m, 3775682m</span>
         </div>
         <div class="wb-status-right">
-          <span class="scale-wrap">
-            <span class="scale-bar" id="wb-scale-bar"></span>
-            <span id="wb-scale-txt">50 km</span>
-          </span>
-          <span id="wb-zoom">Z 7.75</span>
-          <span id="wb-crs">EPSG:3857 / WGS84</span>
+          <span id="wb-zoom">Z 6.75 · 俯仰 32°</span>
+          <span id="wb-crs">AMap 2.0 (GCJ-02 ⇄ WGS84)</span>
         </div>
       </div>
     </section>
 
     <!-- Right Feature Inspector & Tech Spec Drawer -->
-    <aside class="wb-panel right" aria-label="要素属性检查器">
+    <aside class="wb-panel right" aria-label="要素属性与实时路径检查器">
       <div class="wb-sec">
         <div class="wb-sec-title">
-          <span>FEATURE INSPECTOR · 属性查图</span>
+          <span>FEATURE INSPECTOR · 实景与路径分析</span>
         </div>
         <div class="wb-inspector" id="wb-inspector"></div>
       </div>
 
       <div class="wb-sec" style="border-bottom:0">
         <div class="wb-arch-card">
-          <strong>WEBGIS ENGINE ARCHITECTURE</strong>
-          自研无依赖 Canvas 2D WebGIS 引擎：<br>
-          • 坐标投影：WGS84 ⇄ EPSG:3857 墨卡托正解/反解<br>
-          • 瓦片金字塔：标准 Slippy Map z/x/y 异步加载 + LRU 缓存<br>
-          • 空间算法：Haversine 大圆测距、球面多边形缓冲区、高斯 KDE 核密度热力、Ray-Casting 点面拾取<br>
-          • 双尺度下钻：长三角地理服务网 ⇄ 厂区米制平面 GIS
+          <strong>DUAL-ENGINE WEBGIS ARCHITECTURE</strong>
+          高德 JS API 2.0 + 自研微空间双引擎：<br>
+          • 坐标纠偏：手写 WGS84 ⇄ GCJ-02 迭代纠偏 + EPSG:3857 投影<br>
+          • 路网分析：集成 AMap.Driving 实时高速路线规划与耗时钟算<br>
+          • 空间分析：球面测地多边形缓冲区、RangingTool 测距、MouseTool 面积量测、HeatMap 热力图<br>
+          • 车间下钻：自研 Canvas 2D EPSG:Local 平面与 Ray-Casting 拾取
         </div>
       </div>
     </aside>
@@ -151,7 +157,7 @@
   <div class="geo-modal" id="geojson-modal" aria-hidden="true" role="dialog" aria-label="RFC 7946 GeoJSON 数据预览">
     <div class="geo-modal-box">
       <div class="geo-modal-head">
-        <strong>RFC 7946 GeoJSON FeatureCollection（含实时缓冲区多边形）</strong>
+        <strong>RFC 7946 GeoJSON FeatureCollection（WGS84 基准 + 球面缓冲区）</strong>
         <div style="display:flex;gap:8px">
           <button type="button" class="btn btn-primary btn-sm" id="geojson-download">下载 .geojson</button>
           <button type="button" class="btn btn-ghost-dark btn-sm" id="geojson-close">关闭</button>
@@ -161,8 +167,9 @@
     </div>
   </div>
 
-  <script src="./js/gis-data.js?v=5.4"></script>
-  <script src="./js/webgis-engine.js?v=5.4"></script>
-  <script src="./js/site.js?v=5.4"></script>
+  <script src="./js/gis-data.js?v=6.0"></script>
+  <script src="./js/webgis-engine.js?v=6.0"></script>
+  <script src="./js/amap-gis.js?v=6.0"></script>
+  <script src="./js/site.js?v=6.0"></script>
 </body>
 </html>

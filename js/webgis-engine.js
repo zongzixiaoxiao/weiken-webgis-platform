@@ -1299,9 +1299,9 @@
   window.WeikenWebGIS = WeikenWebGIS;
   window.WeikenGeoMath = GeoMath;
 
-  // A. Home Page Compact WebGIS Preview
+  // A. Home Page Compact WebGIS Preview (Auto-Fallback only when AMap SDK is unavailable)
   const homeCanvas = document.getElementById('home-gis-canvas');
-  if (homeCanvas && window.WEIKEN_GIS_DATA) {
+  if (typeof AMap === 'undefined' && homeCanvas && window.WEIKEN_GIS_DATA) {
     const scaleBarEl = document.getElementById('home-gis-scale');
     const scaleTxtEl = document.getElementById('home-gis-scale-txt');
     const coordEl = document.getElementById('home-gis-coord');
@@ -1348,9 +1348,9 @@
     document.getElementById('home-gis-reset')?.addEventListener('click', () => map.resetView());
   }
 
-  // B. Flagship Full-Screen WebGIS Workbench (gis.html)
+  // B. Flagship Full-Screen WebGIS Workbench (Auto-Fallback only when AMap SDK is unavailable)
   const wbCanvas = document.getElementById('gis-canvas');
-  if (wbCanvas && window.WEIKEN_GIS_DATA) {
+  if (typeof AMap === 'undefined' && wbCanvas && window.WEIKEN_GIS_DATA) {
     const coordEl = document.getElementById('wb-coord');
     const mercEl = document.getElementById('wb-merc');
     const zoomEl = document.getElementById('wb-zoom');

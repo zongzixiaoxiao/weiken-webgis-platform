@@ -6,7 +6,11 @@
   <title>南京崴肯自动化设备科技有限公司 | 汽车安全件非标自动化与试验设备</title>
   <meta name="description" content="南京崴肯自动化设备科技有限公司（国家高新技术企业，GR202232018123）：安全气囊（DAB/PAB/SAB/CAB/KAB）、安全带（R200.2/R200RP/锁扣）、方向盘产线及试验设备、3D视觉与机器人智能化方案。">
   <link rel="icon" href="./img/logo.jpg">
-  <link rel="stylesheet" href="./css/site.css?v=5.4">
+  <link rel="stylesheet" href="./css/site.css?v=6.0">
+  <script>
+    window._AMapSecurityConfig = { securityJsCode: '35853aa25bf0930619ee64a5d9ffb839' };
+  </script>
+  <script src="https://webapi.amap.com/maps?v=2.0&key=ff6947f6415014ed887023e7873afc8f"></script>
 </head>
 <body>
   <header class="site-head" id="head">
@@ -231,9 +235,10 @@
 
         <div class="home-gis-shell rv">
           <div class="home-gis-map-wrap">
-            <canvas id="home-gis-canvas" aria-label="南京崴肯客户交付网络交互地图"></canvas>
+            <div id="home-amap" class="amap-viewport" aria-label="南京崴肯客户交付网络高德 2.0 交互地图"></div>
+            <canvas id="home-gis-canvas" aria-hidden="true"></canvas>
             <div class="gis-map-hud-tl">
-              <button type="button" class="gis-pill-btn active" data-home-fly="hq-nanjing">南京浦口总部</button>
+              <button type="button" class="gis-pill-btn active" data-home-fly="hq-nanjing">浦口总部 3D</button>
               <button type="button" class="gis-pill-btn" data-home-fly="client-wuhu">芜湖金安世腾</button>
               <button type="button" class="gis-pill-btn" data-home-fly="client-songyuan">浙江松原</button>
               <button type="button" class="gis-pill-btn" data-home-fly="client-quanzhou">泉州国胜</button>
@@ -244,35 +249,31 @@
               <button type="button" class="gis-icon-btn" id="home-gis-reset" aria-label="复位">⌖</button>
             </div>
             <div class="gis-map-hud-bl">
-              <span class="scale-wrap">
-                <span class="scale-bar" id="home-gis-scale"></span>
-                <span id="home-gis-scale-txt">100 km</span>
-              </span>
-              <span id="home-gis-coord">118.6186°E, 32.0942°N</span>
+              <span id="home-gis-coord">WGS84 118.6186°E, 32.0942°N · 高德 2.0 3D</span>
             </div>
           </div>
 
           <div class="home-gis-side">
             <div>
-              <span class="eyebrow">VERIFIED CLIENT NODE</span>
+              <span class="eyebrow">AMAP 2.0 × WEBGIS</span>
               <h3 id="home-gis-name">南京崴肯自动化总部</h3>
-              <p class="home-gis-meta" id="home-gis-meta">江苏 · 南京市浦口区 · 研发制造中心</p>
+              <p class="home-gis-meta" id="home-gis-meta">江苏 · 南京市浦口区 · 步月路133号江苏可成科技园A幢1楼</p>
               <p class="home-gis-desc" id="home-gis-desc">2019年8月成立，2022年获国家级高新技术企业认证（GR202232018123），拥有20余项专利（含3项发明专利）与3项软著，熟悉 TS16949 体系。</p>
               <div class="gis-tech-chips">
-                <span>EPSG:3857</span>
-                <span>XYZ Tile Pyramid</span>
-                <span>Haversine Buffer</span>
-                <span>KDE Heatmap</span>
+                <span>AMap JS API 2.0</span>
+                <span>WGS84 ⇄ GCJ-02</span>
+                <span>AMap.Driving 路网</span>
+                <span>Geodesic Buffer</span>
                 <span>Indoor GIS</span>
-                <span>RFC 7946 GeoJSON</span>
+                <span>GeoJSON</span>
               </div>
             </div>
             <div>
               <a class="btn btn-primary" href="./gis.html" style="width:100%">
-                启动全屏 WebGIS 空间工作台
+                启动全屏高德 3D 空间工作台
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <p style="margin-top:8px;font-size:12px;color:var(--ink-3);text-align:center">含 100–900km 动态球面缓冲区、大圆测距与车间微空间产线平面下钻</p>
+              <p style="margin-top:8px;font-size:12px;color:var(--ink-3);text-align:center">含真实高速驾车路线规划、卫星/暗夜底图、测距测面与车间平面下钻</p>
             </div>
           </div>
         </div>
@@ -464,8 +465,9 @@
       <span>品质、诚信、合作 · Quality · Sincerity · Co-operation</span>
     </div>
   </footer>
-  <script src="./js/gis-data.js?v=5.4"></script>
-  <script src="./js/webgis-engine.js?v=5.4"></script>
-  <script src="./js/site.js?v=5.4"></script>
+  <script src="./js/gis-data.js?v=6.0"></script>
+  <script src="./js/webgis-engine.js?v=6.0"></script>
+  <script src="./js/amap-gis.js?v=6.0"></script>
+  <script src="./js/site.js?v=6.0"></script>
 </body>
 </html>

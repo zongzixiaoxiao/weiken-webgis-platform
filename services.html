@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品服务 | 南京崴肯自动化设备科技有限公司</title>
+  <meta name="description" content="3D视觉和机器人智能化解决方案；工厂设备、设施、工艺过程改善与效率提升；汽车安全带、安全气囊生产与试验设备及生产线开发。">
+  <link rel="icon" href="./img/logo.jpg">
+  <link rel="stylesheet" href="./css/site.css">
+</head>
+<body>
+  <header class="site-head" id="head">
+    <div class="wrap">
+      <a class="brand" href="./index.html" aria-label="南京崴肯自动化设备科技有限公司 首页">
+        <span class="brand-mark"><img src="./img/logo-clean.png" alt="WE CAN 崴肯"></span>
+        <span class="brand-sep" aria-hidden="true"></span>
+        <span class="brand-text">
+          <strong>南京崴肯自动化</strong>
+          <small>汽车安全件非标自动化设备</small>
+        </span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="./index.html">首页</a>
+        <a href="./gis.html">空间 GIS</a>
+        <a href="./about.html">关于我们</a>
+        <a href="./services.html" aria-current="page">产品服务</a>
+        <a href="./cases.html">案例展示</a>
+        <a href="./contact.html">联系我们</a>
+      </nav>
+      <div class="head-actions">
+        <a class="call-btn" href="tel:13851532506" aria-label="致电 138 5153 2506">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          <span class="mono">138 5153 2506</span>
+        </a>
+        <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="打开菜单">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true">
+        <img src="./img/case-thermoform.jpg" alt="" style="object-position:center 40%">
+      </div>
+      <div class="wrap">
+        <p class="crumb rv"><a href="./index.html">首页</a> / <span>产品服务</span></p>
+        <h1 class="rv d1">产品与工程服务</h1>
+        <p class="sub rv d2">从一台非标专机到一整条联网产线，覆盖工艺咨询、设备研发与现场落地。</p>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:24px;padding-bottom:24px">
+      <div class="wrap">
+        <!-- Pillar 01: 3D Vision & Robotics -->
+        <div class="split-sec svc-row" id="vision">
+          <div class="split-media">
+            <div class="cad-stage rv" data-default-mode="robot" aria-label="3D视觉点云交互演示">
+              <div class="cad-bar">
+                <span class="cad-title"><i class="cad-dot" aria-hidden="true"></i>3D VISION &amp; ROBOT GUIDANCE</span>
+                <span class="cad-tag">点云标定示意</span>
+              </div>
+              <div class="cad-modes" role="tablist">
+                <button type="button" class="cad-mode-btn active" data-mode="robot">机器人抓取标定</button>
+                <button type="button" class="cad-mode-btn" data-mode="airbag">气囊点云轮廓</button>
+                <button type="button" class="cad-mode-btn" data-mode="buckle">锁扣焊缝识别</button>
+              </div>
+              <div class="cad-viewport" style="height:310px">
+                <canvas id="cloud2" aria-hidden="true"></canvas>
+                <span class="cad-corner tl" aria-hidden="true"></span>
+                <span class="cad-corner tr" aria-hidden="true"></span>
+                <span class="cad-corner bl" aria-hidden="true"></span>
+                <span class="cad-corner br" aria-hidden="true"></span>
+                <span class="cad-hint">拖拽旋转 · 切换检测模型</span>
+                <button type="button" class="cad-reset">重置视角</button>
+              </div>
+              <div class="cad-telemetry">
+                <div><span>点云点数</span><strong data-cad-pts>0</strong></div>
+                <div><span>扫描截面 X</span><strong data-cad-scan>+0.0 mm</strong></div>
+                <div><span>视口姿态</span><strong data-cad-angle>0° / 0°</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="prose">
+            <span class="eyebrow rv">SERVICE 01 · VISION &amp; ROBOTICS</span>
+            <h2 class="rv d1">3D 视觉和机器人的<br>智能化解决方案</h2>
+            <p class="rv d1">将 3D 视觉识别定位与工业机器人深度集成到关键生产工序中，让设备看得准、抓得稳、检得全。</p>
+            <ul class="feat-list rv d2">
+              <li>3D 视觉引导定位与工业机器人系统集成</li>
+              <li>与工厂既有生产线、工装及 MES 系统的无缝对接</li>
+              <li>覆盖可行性方案评估、打样验证到现场调试交付</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar 02: Process Improvement -->
+        <div class="split-sec rev svc-row" id="efficiency">
+          <div class="split-media">
+            <div class="media-frame rv">
+              <img src="./img/case-thermoform.jpg" alt="DAB 气袋热成型设备" style="object-position:center 38%">
+              <div class="media-caption">
+                <span>DAB 气袋热成型设备实拍</span>
+                <span class="media-tags"><span>三工位并行</span><span>效率提升</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="prose">
+            <span class="eyebrow rv">SERVICE 02 · PROCESS OPTIMIZATION</span>
+            <h2 class="rv d1">工厂设备、设施、<br>工艺过程改善与效率提升</h2>
+            <p class="rv d1">针对工厂现有设备与产线瓶颈进行现场诊断与定向改造，通过多工位并行与自动化防错提升综合产出与稳定性。</p>
+            <ul class="feat-list rv d2">
+              <li>既有产线设备与工装设施升级改善</li>
+              <li>关键工艺过程参数稳定化与节拍优化</li>
+              <li>减少人工重复操作，系统提升产线生产效率</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar 03: Automotive Non-standard Equipment -->
+        <div class="split-sec svc-row" id="automotive">
+          <div class="split-media">
+            <div class="media-frame rv">
+              <img src="./img/case-airbag-line.jpg" alt="安全气囊生产线实拍">
+              <div class="media-caption">
+                <span>DAB 安全气囊整线实拍</span>
+                <span class="media-tags"><span>整线联网</span><span>双向追溯</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="prose">
+            <span class="eyebrow rv">SERVICE 03 · AUTOMOTIVE SAFETY</span>
+            <h2 class="rv d1">汽车零部件行业的<br>非标自动化设备开发</h2>
+            <p class="rv d1">专注汽车被动安全核心零部件领域，提供安全带、安全气囊生产专机、试验检测设备及整线交钥匙开发。</p>
+            <ul class="feat-list rv d2">
+              <li>汽车安全气囊装配生产线与热成型等专用设备</li>
+              <li>汽车安全带锁扣生产线与焊接测试一体化工作站</li>
+              <li>面向工艺验证与质量把关的在线试验及检测设备</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process & Testing Capabilities Matrix -->
+    <section class="sec sec-subtle">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="eyebrow rv">PROVEN PROCESS MATRIX</span>
+            <h2 class="sec-title rv d1">已验证的工艺与检测能力</h2>
+            <p class="sec-lead rv d1">以下核心工艺、防错与在线检测能力均已在真实客户交付项目中稳定运行。</p>
+          </div>
+        </div>
+        <div class="caps-grid">
+          <div class="cap-card rv">
+            <div>
+              <span class="cap-code">PROC-01</span>
+              <h3>超声波焊接集成</h3>
+              <p>面向安全带锁扣生产线的自动超声波焊接工位集成，焊缝一致性好、节拍稳定。</p>
+            </div>
+            <span class="cap-src">应用案例：安全带超声波焊接机集成应用</span>
+          </div>
+          <div class="cap-card rv d1">
+            <div>
+              <span class="cap-code">TEST-02</span>
+              <h3>插入力 / 打开力检测</h3>
+              <p>在线自动测量安全带锁扣插入力与打开力，自动判定合格并拦截异常件。</p>
+            </div>
+            <span class="cap-src">应用案例：安全带超声波焊接机集成应用</span>
+          </div>
+          <div class="cap-card rv d2">
+            <div>
+              <span class="cap-code">TEST-03</span>
+              <h3>导线导通检测</h3>
+              <p>集成电性能工位，对安全带锁扣导线回路进行自动导通检测与结果记录。</p>
+            </div>
+            <span class="cap-src">应用案例：安全带超声波焊接机集成应用</span>
+          </div>
+          <div class="cap-card rv">
+            <div>
+              <span class="cap-code">PROC-04</span>
+              <h3>气袋热成型</h3>
+              <p>三工位同时进行热成型作业，缩短等待时间，有效提升单位小时产出效率。</p>
+            </div>
+            <span class="cap-src">应用案例：DAB 气袋热成型设备</span>
+          </div>
+          <div class="cap-card rv d1">
+            <div>
+              <span class="cap-code">MES-05</span>
+              <h3>整线联网与双向追溯</h3>
+              <p>整线联网采集工艺与物料数据，实现零件 → 总成、总成 → 零件双向精准追溯。</p>
+            </div>
+            <span class="cap-src">应用案例：DAB 安全气囊线</span>
+          </div>
+          <div class="cap-card rv d2">
+            <div>
+              <span class="cap-code">SAFE-06</span>
+              <h3>强防错工程设计</h3>
+              <p>将扫码防错、到位感应与工序互锁融入控制逻辑，显著降低装配失误风险。</p>
+            </div>
+            <span class="cap-src">应用案例：DAB 安全气囊线</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus Domains & Delivery Workflow -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="eyebrow rv">INDUSTRY FOCUS</span>
+            <h2 class="sec-title rv d1">深耕两大核心领域</h2>
+          </div>
+          <a class="more-link rv" href="./cases.html">
+            浏览全部案例
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="domains-grid">
+          <a class="domain-card rv" href="./cases.html#c1">
+            <img src="./img/case-airbag-line.jpg" alt="汽车安全气囊设备">
+            <div class="domain-card-body">
+              <span class="chip">AIRBAG SYSTEMS</span>
+              <h3 style="margin-top:10px">汽车安全气囊</h3>
+              <p>DAB 安全气囊装配生产线、三工位气袋热成型专机与整线联网追溯方案</p>
+            </div>
+          </a>
+          <a class="domain-card rv d1" href="./cases.html#c3">
+            <img src="./img/case-ultrasonic.jpg" alt="汽车安全带锁扣超声波焊接与检测设备" style="object-position:center 45%">
+            <div class="domain-card-body">
+              <span class="chip belt">SEATBELT SYSTEMS</span>
+              <h3 style="margin-top:10px">汽车安全带</h3>
+              <p>安全带锁扣生产线、自动超声波焊接集成、力学与导线导通在线检测设备</p>
+            </div>
+          </a>
+        </div>
+
+        <div style="margin-top:64px">
+          <span class="eyebrow rv">DELIVERY WORKFLOW</span>
+          <h2 class="sec-title rv d1">一站式合作流程</h2>
+          <p class="sec-lead rv d1">咨询、研发、落地全流程闭环协同。</p>
+          <div class="process-grid rv">
+            <div class="process-step">
+              <span class="step-num">01</span>
+              <div>
+                <h4>咨询</h4>
+                <p>了解工件图纸、节拍指标与防错工艺需求</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-num">02</span>
+              <div>
+                <h4>研发</h4>
+                <p>完成方案设计、结构电控与视觉软件研发</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-num">03</span>
+              <div>
+                <h4>落地</h4>
+                <p>精密制造、厂内联调，交付并护航客户产线</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-wrap">
+      <div class="wrap">
+        <div class="cta-card rv">
+          <div>
+            <span class="eyebrow on-dark">DIRECT ENGINEERING CONSULTATION</span>
+            <h2>要上一条新产线，<br>或想改善现有工艺？</h2>
+            <p>直接打电话，聊聊你的工件和节拍需求。</p>
+            <a class="cta-phone" href="tel:13851532506">138 5153 2506</a>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-red" href="tel:13851532506">立即致电</a>
+            <a class="btn btn-ghost-dark" href="./contact.html">在线填写需求单</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-top">
+      <div>
+        <span class="foot-brand-badge"><img src="./img/logo.jpg" alt="WE CAN 崴肯"></span>
+        <p class="foot-desc">南京崴肯自动化设备科技有限公司，专注汽车安全带、安全气囊的非标自动化设备，以及 3D 视觉与机器人智能化方案。</p>
+      </div>
+      <div>
+        <h4>站点导航</h4>
+        <ul class="foot-links">
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./gis.html">空间 GIS</a></li>
+          <li><a href="./about.html">关于我们</a></li>
+          <li><a href="./services.html">产品服务</a></li>
+          <li><a href="./cases.html">案例展示</a></li>
+          <li><a href="./contact.html">联系我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系方式</h4>
+        <ul class="foot-links">
+          <li><a href="tel:13851532506">电话：<span class="mono">138 5153 2506</span></a></li>
+          <li><a href="mailto:yang.yunfeng@njwe-can.com">邮箱：<span class="mono">yang.yunfeng@njwe-can.com</span></a></li>
+          <li>南京崴肯自动化设备科技有限公司</li>
+        </ul>
+      </div>
+      <div class="foot-qr">
+        <div class="foot-qr-box"><img src="./img/contact-qr.svg" alt="扫码拨打咨询电话 138 5153 2506"></div>
+        <span>手机扫码<br>一键直拨工程咨询专线</span>
+      </div>
+    </div>
+    <div class="wrap foot-bot">
+      <span>Copyright © 2024 南京崴肯自动化设备科技有限公司</span>
+      <span>用创新科技点亮智慧生活 · 品质、诚信、合作</span>
+    </div>
+  </footer>
+  <script src="./js/site.js"></script>
+</body>
+</html>

@@ -3699,109 +3699,78 @@ ul, ol {
    v5.0 Upgrades: Partner Logo Wall, Core Team Grid, Patents & Cert Gallery
    ========================================================================== */
 
-/* Compact Minimal 4x2 Enterprise Logo Wall */
+/* Zero-Whitespace Snug Single-Bar Enterprise Client Strip */
 .logo-wall-sec {
-  margin-top: 32px;
-}
-
-.logo-wall-head {
+  margin-top: 28px;
+  padding: 16px 22px;
+  background: #FAFBFD;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 12px 18px;
 }
 
-.logo-wall-head small {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--ink-muted);
-  text-transform: uppercase;
-}
-
-.logo-wall-head p {
-  font-size: 12.5px;
-  color: var(--ink-muted);
-}
-
-.logo-wall-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  overflow: hidden;
-  background: #FAFBFD;
-}
-
-.lw-cell {
-  position: relative;
-  height: 70px;
-  padding: 0 18px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #FAFBFD;
-  transition: background-color 0.2s var(--ease);
-}
-
-.lw-cell:nth-child(4n) {
-  border-right: 0;
-}
-
-.lw-cell:nth-child(n + 5) {
-  border-bottom: 0;
-}
-
-.lw-cell:hover {
-  background: #fff;
-}
-
-.lw-mark {
+.logo-wall-label {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  color: #475569;
-  transition: color 0.2s var(--ease);
-}
-
-.lw-cell:hover .lw-mark {
-  color: var(--brand);
-}
-
-.lw-emblem {
-  width: 22px;
-  height: 22px;
+  gap: 10px;
+  padding-right: 18px;
+  border-right: 1px solid var(--line-strong);
   flex: none;
-  opacity: 0.82;
 }
 
-.lw-wordmark {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  line-height: 1.15;
+.logo-wall-label small {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  text-transform: uppercase;
 }
 
-.lw-wordmark b {
+.logo-wall-label strong {
   font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  color: inherit;
+  color: var(--ink);
 }
 
-.lw-wordmark small {
-  margin-top: 2px;
-  font-family: var(--font-mono);
-  font-size: 9px;
+.logo-wall-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.lw-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: #33415C;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--ink-muted);
-  text-transform: uppercase;
+  white-space: nowrap;
+  transition: border-color 0.18s, color 0.18s, background-color 0.18s;
+}
+
+.lw-pill:hover {
+  border-color: var(--brand-hi);
+  color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.lw-pill svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  color: var(--brand);
+  opacity: 0.78;
 }
 
 /* Core Team Grid (about.html) */
@@ -3978,31 +3947,22 @@ ul, ol {
 }
 
 @media (max-width: 1020px) {
-  .logo-wall-grid,
   .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .lw-cell:nth-child(4n) { border-right: 1px solid var(--line); }
-  .lw-cell:nth-child(2n) { border-right: 0; }
-  .lw-cell:nth-child(n + 5) { border-bottom: 1px solid var(--line); }
-  .lw-cell:nth-child(n + 7) { border-bottom: 0; }
   .cert-showcase {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .logo-wall-grid,
+  .logo-wall-label {
+    border-right: 0;
+    padding-right: 0;
+    width: 100%;
+  }
   .team-grid {
     grid-template-columns: 1fr;
-  }
-  .lw-cell {
-    height: 60px;
-    border-right: 0 !important;
-    border-bottom: 1px solid var(--line) !important;
-  }
-  .lw-cell:last-child {
-    border-bottom: 0 !important;
   }
   .patent-grid {
     grid-template-columns: repeat(2, 1fr);
